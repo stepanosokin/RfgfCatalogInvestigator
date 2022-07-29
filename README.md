@@ -12,5 +12,3 @@ The method RfgfCatalogInvestigator.request_reports(self, **kwargs) is the functi
         :return:
         The function returns the dictionary with search results from rfgf.ru/catalog/index.php website.
         If out_csv='<path to output csv>' is specified, the result will be written to the file too.
-        """
-
