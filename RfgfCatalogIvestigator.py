@@ -17,13 +17,13 @@ class RfgfCatalogInvestigator():
         This function makes request to rfgf.ru/catalog/index.php website and returns the result
         from all or from requested pages of the result as dictionary and optionally writes the result to csv file.
         :param kwargs:
-        ftext='<some text>' - mandatory. Search string for the request.
-        out_csv='<path to output csv>' - optional. Path to result csv file. The default is null, which means not to write output file.
-        start_page=<number> - optional. Number of the first request result page to process. The default is 1.
-        end_page=<number> - optional. Number of the last request result page to process. The default is the last page.
+        ftext='some text' - mandatory. Search string for the request.
+        out_csv='path to output csv' - optional. Path to result csv file. The default is null, which means not to write output file.
+        start_page=number - optional. Number of the first request result page to process. The default is 1.
+        end_page=number - optional. Number of the last request result page to process. The default is the last page.
         :return:
         The function returns the dictionary with search results from rfgf.ru/catalog/index.php website.
-        If out_csv='<path to output csv>' is specified, the result will be written to the file too.
+        If out_csv='path to output csv' is specified, the result will be written to the file too.
         """
         # this makes the request to rfgf catalog. The structure of request is hacked from Chrome F12 mode.
         # first kwargs['ftext'] parameter is used as a search string.
