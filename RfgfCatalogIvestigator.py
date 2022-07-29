@@ -51,7 +51,6 @@ class RfgfCatalogInvestigator():
                                      'full': '1',
                                      'gg': '',
                                      'mode': 'limctl',
-                                     # 'mode': '',
                                      'orgisp': '',
                                      'source': '',
                                      'pi': ''
