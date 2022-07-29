@@ -2,7 +2,7 @@
 
 This is a python script to download the complete or partial catalog of geologic documents from Rosgeolfond website https://rfgf.ru/catalog/index.php into csv file.
 
-You will need the requests, bs4 and csv packages
+You will need to import the requests, bs4 and csv packages
 
 The class RfgfCatalogInvestigator creates an object that can download the data with its methods.
 
