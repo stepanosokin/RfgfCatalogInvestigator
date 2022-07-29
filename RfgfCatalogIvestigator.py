@@ -15,7 +15,7 @@ class RfgfCatalogInvestigator():
     def request_reports(self, **kwargs):
         """
         This function makes request to rfgf.ru/catalog/index.php website and returns the result
-        from the first page as dictionary and optionally writes the result to csv file
+        from all or from requested pages of the result as dictionary and optionally writes the result to csv file.
         :param kwargs:
         ftext='<some text>' - mandatory. Search string for the request.
         out_csv='<path to output csv>' - optional. Path to result csv file. The default is null, which means not to write output file.
