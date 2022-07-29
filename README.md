@@ -46,10 +46,15 @@ reports = my_investigator.request_reports(ftext='', out_csv='all_reports.csv')
 total number of pages in the result. For example, if there are 26768 pages in the final result:
 
 reports = my_investigator.request_reports(ftext='', out_csv='all_reports_part1.csv', start_page=1, end_page=5000)
+         
 reports = my_investigator.request_reports(ftext='', out_csv='all_reports_part2.csv', start_page=5001, end_page=10000)
+         
 reports = my_investigator.request_reports(ftext='', out_csv='all_reports_part3.csv', start_page=10001, end_page=15000)
+         
 reports = my_investigator.request_reports(ftext='', out_csv='all_reports_part4.csv', start_page=15001, end_page=20000)
+         
 reports = my_investigator.request_reports(ftext='', out_csv='all_reports_part5.csv', start_page=20001, end_page=25000)
+         
 reports = my_investigator.request_reports(ftext='', out_csv='all_reports_part6.csv', start_page=25001, end_page=26768)
 
 you will have 6 separate csv files which you can later merge together manually.
