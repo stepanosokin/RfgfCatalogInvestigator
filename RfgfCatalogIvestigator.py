@@ -264,16 +264,20 @@ class RfgfCatalogInvestigator():
             print('Empty result')
             return []
 
+        
 
+# This is an example of using the class.
+# first you create an instance of RfgfCatalogInvestigator.
+# second, you call it's request_reports function to download the data from rfgf.ru/catalog/index.php
+# You must specify the search string in ftext parameter, and you may specify the output csv in out_csv parameter,
+# the start page to download in start_page parameter and the last page to download in end_page parameter.
+# To understand what these pages mean, you can go to rfgf.ru/catalog/index.php website, make search with an empty search string (for example).
+# Then at the bottom of the page you'll see the result pages switcher. These are the page numbers for start_page and end_page parameters.
+# When there are thousands of pages, it may be convenient to split the request in several parts, downloading limited number of pages at a time.
+# If you want to download all the results at one time, just skip the startpage and end_page parameters.
 
-my_investigator = RfgfCatalogInvestigator()
-reports = my_investigator.request_reports(ftext='', out_csv='all_reports_from_rfgf_part6.csv', start_page=26178, end_page=26768)
-# for report in reports:
-#     print('-' * 100)
-#     print('-' * 100)
-#     for key in report.keys():
-#         print(key, report[key], sep='||')
-
+# my_investigator = RfgfCatalogInvestigator()
+# reports = my_investigator.request_reports(ftext='496', out_csv='all_reports_from_rfgf_part6.csv', start_page=1, end_page=2)
 
 
 
