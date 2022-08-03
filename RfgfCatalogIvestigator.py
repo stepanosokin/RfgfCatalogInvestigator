@@ -77,7 +77,7 @@ class RfgfCatalogInvestigator():
             # Flag to write output to csv or not
             write_csv = False
             # If more than one arg is specified, we assume that csv must be written
-            if len(kwargs['out_csv']) > 1:
+            if 'out_csv' in kwargs.keys() and len(kwargs['out_csv']) > 1:
                 write_csv = True
             # open csv file for writing if write_csv is True
             if write_csv:
@@ -138,10 +138,10 @@ class RfgfCatalogInvestigator():
             # the defaut start page
             start = 1
             # if the start page is specified in **kwargs, then use it
-            if kwargs['start_page'] and type(kwargs['start_page'] == int):
+            if 'start_page' in kwargs.keys() and kwargs['start_page'] and type(kwargs['start_page'] == int):
                 start = kwargs['start_page']
             # the default end page is the total number of pages. if the start page is specified in **kwargs, then use it
-            if kwargs['end_page'] and type(kwargs['end_page'] == int):
+            if 'end_page' in kwargs.keys() and kwargs['end_page'] and type(kwargs['end_page'] == int):
                 pages = kwargs['end_page']
             # loop through the pages of the result
             for i in range(start, pages + 1):
@@ -254,13 +254,13 @@ class RfgfCatalogInvestigator():
             # close the output csv file if we opened it
             if write_csv:
                 csvfile.close()
-            # print the total number of reports processed
-            print(reports_written_counter, 'reports processed')
+                # print the total number of reports processed
+                # print(reports_written_counter, 'reports processed')
             # return the dictionary of reports
             return reports
         # in case of empty search result print message and return empty list
         else:
-            print('Empty result')
+            # print('Empty result')
             return []
 
         
