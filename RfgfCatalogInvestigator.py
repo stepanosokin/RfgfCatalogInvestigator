@@ -3,6 +3,7 @@ import requests
 # import json
 from bs4 import BeautifulSoup
 import csv
+import psycopg2
 
 
 class RfgfCatalogInvestigator():
@@ -263,7 +264,8 @@ class RfgfCatalogInvestigator():
             # print('Empty result')
             return []
 
-        
+
+
 
 # This is an example of using the class.
 # first you create an instance of RfgfCatalogInvestigator.
@@ -275,9 +277,35 @@ class RfgfCatalogInvestigator():
 # When there are thousands of pages, it may be convenient to split the request in several parts, downloading limited number of pages at a time.
 # If you want to download all the results at one time, just skip the startpage and end_page parameters.
 
-# my_investigator = RfgfCatalogInvestigator()
+my_investigator = RfgfCatalogInvestigator()
 # reports = my_investigator.request_reports(ftext='496', out_csv='all_reports_from_rfgf_part6.csv', start_page=1, end_page=2)
+# reports = my_investigator.request_reports(ftext='', out_csv='all_reports_from_rfgf_20230911_part1.csv', start_page=1, end_page=4690)
+# reports = my_investigator.request_reports(ftext='', out_csv='all_reports_from_rfgf_20230911_part2.csv', start_page=4691, end_page=9380)
+# reports = my_investigator.request_reports(ftext='', out_csv='all_reports_from_rfgf_20230911_part3.csv', start_page=9381, end_page=14070)
+# reports = my_investigator.request_reports(ftext='', out_csv='all_reports_from_rfgf_20230911_part4.csv', start_page=14071, end_page=18760)
+# reports = my_investigator.request_reports(ftext='', out_csv='all_reports_from_rfgf_20230911_part5.csv', start_page=18761, end_page=23450)
+# reports = my_investigator.request_reports(ftext='', out_csv='all_reports_from_rfgf_20230911_part6.csv', start_page=23451)
 
 
 
-
+# with open('.pgdsn', encoding='utf-8') as f:
+#     pgcs = f.read().replace('\n', '')
+#
+# with psycopg2.connect(pgcs) as pgconn:
+#     # input_files = ['all_reports_from_rfgf_20230911_part2.csv']
+#     input_files = ['all_reports_from_rfgf_20230911_part3.csv',
+#                    'all_reports_from_rfgf_20230911_part4.csv',
+#                    'all_reports_from_rfgf_20230911_part5.csv',
+#                    'all_reports_from_rfgf_20230911_part6.csv']
+#     with pgconn.cursor() as cur:
+#         for i_f in input_files:
+#             with open(i_f, encoding='utf-8', newline='') as f:
+#                 reader = csv.DictReader(f, delimiter='|')
+#                 for i, row in enumerate(reader):
+#                     fields_to_update = ['"' + x + '"' for x in row.keys()]
+#                     values_to_insert = ["'" + x.replace("'", "''") + "'" for x in row.values()]
+#                     sql = f"insert into rfgf.rfgf_catalog_20230911({', '.join(fields_to_update)}) values({', '.join(values_to_insert)});"
+#                     cur.execute(sql)
+#                     if i % 10000 == 0:
+#                         print (f"{str(i)} records committed")
+#                         pgconn.commit()
